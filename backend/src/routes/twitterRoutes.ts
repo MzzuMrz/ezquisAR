@@ -3,7 +3,6 @@ import { TwitterApi } from "twitter-api-v2";
 
 const router = express.Router();
 
-// Configuración de la API de Twitter
 const client = new TwitterApi({
   appKey: process.env.TWITTER_API_KEY!,
   appSecret: process.env.TWITTER_API_SECRET_KEY!,
@@ -11,7 +10,6 @@ const client = new TwitterApi({
   accessSecret: process.env.TWITTER_ACCESS_TOKEN_SECRET!,
 });
 
-// Ruta para publicar un tweet
 router.post("/tweet", async (req: Request, res: Response) => {
   const { content } = req.body;
 

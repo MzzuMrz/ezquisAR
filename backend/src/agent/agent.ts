@@ -7,7 +7,6 @@ import * as dotenv from "dotenv";
 
 dotenv.config();
 
-// Configurar Herramientas y Modelo
 const tools = [new TavilySearchResults({ maxResults: 3 })];
 const model = new ChatOpenAI({
   temperature: 1,
@@ -85,10 +84,8 @@ Ejemplos:
   Respuesta: “Facilongo, conectate a la transmisión, ponete el chat on fire y gritá cada gol como si te hubiese hosteado la Coscu Army.”
 `;
 
-// Configurar Estado Persistente
 const memorySaver = new MemorySaver();
 
-// Crear el Agente
 export const agent = createReactAgent({
   llm: model,
   tools: tools,
@@ -96,7 +93,6 @@ export const agent = createReactAgent({
   stateModifier: argentineModifier,
 });
 
-// Usar el Agente
 (async () => {
   const initialResponse = await agent.invoke(
     {
